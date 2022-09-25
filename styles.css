@@ -10,7 +10,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content:stretch;
-
 }
 
 .hero, .footer {
@@ -24,10 +23,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 32px 0;
-}
-
-.hero .header {
-    width: 100%;
 }
 
 .center {
