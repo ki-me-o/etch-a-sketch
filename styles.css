@@ -16,11 +16,18 @@ body {
 .hero, .footer {
     background-color: rgb(4, 66, 4);
     color: beige;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 32px 0;
+}
 
+.hero .header {
+    width: 100%;
 }
 
 .center {
@@ -28,6 +35,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.center .maintext {
+    padding: 16px 0;
 }
 
 .content {
@@ -44,7 +55,6 @@ body {
     flex-flow: row wrap;
     justify-content: space-around;
     padding: 16px;
-
 }
 
 .drawspace div {
