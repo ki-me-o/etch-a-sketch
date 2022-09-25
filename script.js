@@ -1,11 +1,16 @@
 /* Initial DOM Manipulation */
 
 initalizeDrawspace();
-initializeMouseOverListener();
+initializeButtonListener();
 
 // Generate a width * width square grid of div elements within the drawspace div
 function initalizeDrawspace(edge = 16) {
-    drawspace = document.querySelector('.drawspace');
+    const drawspace = document.querySelector('.drawspace');
+
+    // Reset drawspace 'pixel' divs if called via button
+    while(drawspace.hasChildNodes()) {
+        drawspace.removeChild(drawspace.firstChild);
+    }
 
     for(let i = 0; i < edge ** 2; i++) {
         etchableDiv = document.createElement('div');
@@ -15,14 +20,15 @@ function initalizeDrawspace(edge = 16) {
         drawspace.appendChild(etchableDiv);
     }
 
+    // Must call MouseOverListener after every initialization (including button clicks)
+    initializeMouseOverListener();
 }
 
 function initializeMouseOverListener() {
-    etchables = document.querySelectorAll('.etchable');
+    const etchables = document.querySelectorAll('.etchable');
 
     etchables.forEach(etchable => 
-        etchable.addEventListener('mouseover',
-        e => {
+        etchable.addEventListener(  'mouseover', e => {
             console.log(e.target);
             e.target.style['background-color'] = 'black';
         },
@@ -30,4 +36,12 @@ function initializeMouseOverListener() {
             once: true // Only need to activate once to color in full black, but will need to be removed to do the shading
         })
     );
+}
+
+function initializeButtonListener() {
+    const button = document.querySelector('button.grid');
+    button.addEventListener('click', e => {
+        const newEdge = prompt("What would you like the edge length to be?");
+        initalizeDrawspace(newEdge);
+    });
 }
