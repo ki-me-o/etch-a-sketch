@@ -43,11 +43,11 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    padding: 16px;
 
 }
 
 .drawspace div {
-    width: 20px;
-    height: 20px;
-    margin: 5px;
+    box-sizing: border-box; /* allows caculation of width using exact percentage without adjusting for padding */
+    padding: 5px;
 }
