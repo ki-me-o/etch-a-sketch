@@ -1,11 +1,18 @@
+/* Initialize variables */
+let currentEdge;
+
+
 /* Initial DOM Manipulation */
 
 initalizeDrawspace();
 initializeButtonListener();
 
+/* Define Functions */
+
 // Generate a width * width square grid of div elements within the drawspace div
 function initalizeDrawspace(edge = 16) {
     const drawspace = document.querySelector('.drawspace');
+    currentEdge = edge;
 
     // Reset drawspace 'pixel' divs if called via button
     while(drawspace.hasChildNodes()) {
@@ -45,7 +52,7 @@ function initializeButtonListener() {
 
     const clearButton = document.querySelector('button.clear');
     clearButton.addEventListener('click', e =>{
-
+        initalizeDrawspace(currentEdge);
     });
 
     const solidButton = document.querySelector('button.solid');
