@@ -84,7 +84,7 @@ button {
     padding: 4px;
 }
 
-.hero, .footer {
+.hero {
     background-color: rgb(4, 66, 4);
     color: beige;
     font-size: 32px;
