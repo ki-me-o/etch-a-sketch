@@ -123,6 +123,6 @@ function initializeButtonListener() {
 
     const holdButton = document.querySelector('button.holdmode');
     holdButton.addEventListener('click', e =>{
-
+        e.target.disabled = true;
     });
 }
