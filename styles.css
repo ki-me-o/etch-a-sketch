@@ -97,3 +97,23 @@ button {
     padding: 32px 0;
 }
 
+.mouse {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mouse-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
