@@ -36,12 +36,30 @@ function initializeMouseOverListener(color = 'black', options = {once: true}) {
 
     switch(color) {
         case 'black':
-            etchables.forEach(etchable => 
+            etchables.forEach(etchable => {
                 etchable.addEventListener(  'mouseover', e => {
                     e.target.style['background-color'] = color;
                 },
                 options)
-            ); break;
+            }
+        ); break;
+        case 'grayscale':
+            etchables.forEach(etchable => 
+                etchable.addEventListener('mouseover', e => {
+                    let rgb = e.target.style['background-color'];
+                    rgb = rgb.replace(/[^\d,]/g,'').split(',');
+                    if (rgb[0] != rgb[1] || rgb[1] != rgb[2]) {
+                        e.target.style['background-color'] = 'rgb(255,255,255)';
+                        return;
+                    } else {
+                        for(let i = 0; i < 3; i++) {
+                            rgb[i] = parseInt(rgb[i]) - (255 / 10);
+                        }
+                        e.target.style['background-color'] = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+                    }
+                },
+                options)
+                ); break;
         case 'rainbow':
             etchables.forEach(etchable => 
                 etchable.addEventListener( 'mouseover', e =>  {
@@ -49,7 +67,8 @@ function initializeMouseOverListener(color = 'black', options = {once: true}) {
                     const g = Math.random() * 255;
                     const b = Math.random() * 255;
                     e.target.style['background-color'] = 'rgb(' + r + ',' + g + ',' + b + ')';
-                })
+                },
+                options)
             ); break;
     }
 
@@ -76,12 +95,12 @@ function initializeButtonListener() {
 
     const grayButton = document.querySelector('button.grayscale');
     grayButton.addEventListener('click', e =>{
-
+        initializeMouseOverListener('grayscale', {once: false});
     });
 
     const rainbowButton = document.querySelector('button.rainbow');
     rainbowButton.addEventListener('click', e =>{
-        initializeMouseOverListener('rainbow');
+        initializeMouseOverListener('rainbow', {once: false});
     });
 
     const hoverButton = document.querySelector('button.hovermode');
