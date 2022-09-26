@@ -24,17 +24,15 @@ function initalizeDrawspace(edge = 16) {
     initializeMouseOverListener();
 }
 
-function initializeMouseOverListener() {
+function initializeMouseOverListener(color = 'black', options = {once: true}) {
     const etchables = document.querySelectorAll('.etchable');
 
     etchables.forEach(etchable => 
         etchable.addEventListener(  'mouseover', e => {
             console.log(e.target);
-            e.target.style['background-color'] = 'black';
+            e.target.style['background-color'] = color;
         },
-        {
-            once: true // Only need to activate once to color in full black, but will need to be removed to do the shading
-        })
+        options)
     );
 }
 
@@ -43,6 +41,11 @@ function initializeButtonListener() {
     gridButton.addEventListener('click', e => {
         const newEdge = prompt("What would you like the edge length to be?");
         initalizeDrawspace(newEdge);
+    });
+
+    const clearButton = document.querySelector('button.clear');
+    clearButton.addEventListener('click', e =>{
+
     });
 
     const solidButton = document.querySelector('button.solid');

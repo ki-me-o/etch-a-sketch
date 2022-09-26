@@ -69,7 +69,7 @@ button {
 
 .drawspace div {
     box-sizing: border-box; /* allows caculation of width using exact percentage without adjusting for padding */
-    padding: 5px;
+    padding: 1px; /* div takes up no space without at least 1px padding */
 }.drawspace {
     display: flex;
     flex-flow: row wrap;
