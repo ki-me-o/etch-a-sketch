@@ -39,9 +39,34 @@ function initializeMouseOverListener() {
 }
 
 function initializeButtonListener() {
-    const button = document.querySelector('button.grid');
-    button.addEventListener('click', e => {
+    const gridButton = document.querySelector('button.grid');
+    gridButton.addEventListener('click', e => {
         const newEdge = prompt("What would you like the edge length to be?");
         initalizeDrawspace(newEdge);
+    });
+
+    const solidButton = document.querySelector('button.solid');
+    solidButton.addEventListener('click', e =>{
+
+    });
+
+    const grayButton = document.querySelector('button.grayscale');
+    grayButton.addEventListener('click', e =>{
+
+    });
+
+    const rainbowButton = document.querySelector('button.rainbow');
+    rainbowButton.addEventListener('click', e =>{
+
+    });
+
+    const hoverButton = document.querySelector('button.hovermode');
+    hoverButton.addEventListener('click', e =>{
+
+    });
+
+    const holdButton = document.querySelector('button.holdmode');
+    holdButton.addEventListener('click', e =>{
+
     });
 }

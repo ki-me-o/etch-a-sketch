@@ -40,16 +40,17 @@ button {
     align-items: center;
 }
 
-.center .maintext {
-    padding: 16px 4px;
-}
-
 .center .right {
     flex: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.center .right .maintext {
+    padding: 16px 4px;
+}
+
 .center {
     flex: 4;
     display: flex;
